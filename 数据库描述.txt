@@ -1,0 +1,51 @@
+#tb_user
+id   主键
+name  用户登录的名称, 账号
+password 密码
+email
+real_name  真实名称
+role_id    这个用户必须拥有一个角色
+
+#tb_permission 权限
+id 主键
+name 名称
+desc 描述
+
+#tb_role
+id  主键
+name  角色名称
+
+#tb_role_permission  关联表
+id 主键
+role_id  角色ID
+permission_id   权限ID
+
+# tb_questionnaire 问卷
+id 主键
+title 标题
+ctime 创建时间
+dtime 截止时间 datetime
+publish 是否发布 1:发布 0：未发布
+puser_id 发布人ID
+
+
+# tb_question 问卷内的问题, 包含问题描述 答案列表 
+id 主键
+no 在问卷中的序号
+text  问题的内容
+type 1: 单选类型   0: 多选类型
+questionnaire_id  问题所属 问卷ID
+
+#tb_answer 答案 
+id 主键
+text 答案内容 
+path  如果答案是一个图片，可以选用. 
+question_id 所属问题ID
+total  : 这个答案被选择的总数
+
+#tb_select  用户参与调查的记录
+id  主键
+user_id 用户ID
+answer_id 选择的答案
+
+
