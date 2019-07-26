@@ -5,6 +5,9 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String socketPath = request.getServerName()+":"+request.getServerPort()+path+"/";
+
+// System.out.println(basePath + ", " + socketPath);
+// http://localhost:8080/web/, localhost:8080/web/
 %>
 <!DOCTYPE html>
 <html>
@@ -118,13 +121,13 @@ html,body {
 			</div>
 			<div class="login-content ">
 			<div class="form">
-			<form id="loginform" action="<%=basePath %>login/verification.do" method="post">
+			<form id="loginform" action="<%=basePath %>user?method=dologin" method="post">
 			
 				<div class="form-group">
 					<div class="col-xs-12  ">
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" name="username" class="form-control" placeholder="用户名">
+							<input type="text" name="name" class="form-control" placeholder="用户名">
 						</div>
 					</div>
 				</div>

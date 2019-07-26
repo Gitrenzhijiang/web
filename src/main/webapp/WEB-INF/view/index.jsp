@@ -108,12 +108,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</td>
 											<td class="text-center">
 													<div class="input-group-btn" id="ssdiv">
-														<shiro:hasPermission name="wjdctoupiao">
+													   <!-- shiro标签, 不注释会导致页面显示异常 -->
+														<!-- <shiro:hasPermission name="wjdctoupiao"> -->
 															<a class="btn btn-info" href="<%=basePath %>question/go/${item.mainId }" target="_blank" >参与投票</a>
-														</shiro:hasPermission>
-														<shiro:hasPermission name="wjdcchakan">
+														<!-- </shiro:hasPermission> -->
+														<!-- <shiro:hasPermission name="wjdcchakan"> -->
 															<a class="btn btn-success" href="<%=basePath %>question/statistics/${item.mainId }" target="_blank" >查看结果</a>
-														</shiro:hasPermission>
+														<!-- </shiro:hasPermission> -->
 													</div>
 											</td>
 										</tr>	
