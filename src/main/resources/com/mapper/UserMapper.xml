@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.survey.dao.UserDao">
+	<select id="findById" parameterType="int" resultMap="userselect">
+		select * from tb_user where id=#{id}
+	</select>
+	
+	<select id="findAll" resultMap="userselect">
+		select * from tb_user
+	</select>
+	
+	<select id="findByName" resultMap="userselect">
+		select * from tb_user where name=#{name}
+	</select>
+	
+	<resultMap type="com.survey.form.User" id="userselect">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<result property="email" column="email"/>
+		<result property="real_name" column="real_name"/>
+		<association property="role" column="role_id" javaType="com.survey.form.Role"
+			select="com.survey.dao.RoleDao.findById"/>
+	</resultMap>
+	
+</mapper>
